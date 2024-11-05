@@ -10,11 +10,15 @@
 pandoc --include-in-header=header.tex --pdf-engine=lualatex -t beamer slide.md -o slide.pdf
 ```
 
+[Here](slide.pdf) is the output
+
 ### With speaker notes
 
 ```bash
 pandoc --include-in-header=header.tex --include-in-header=note.tex --pdf-engine=lualatex -t beamer slide.md -o slide_note.pdf
 ```
+
+[Here](slide_note.pdf) is the output
 
 ## Compile with TeX output
 
