@@ -15,13 +15,13 @@ theme: metropolis
 
 #### Fourier Transform
 
-$$X(\omega) = \int _{-\infty} ^{\infty} x(t) \exp \left(- j{2\pi f t}\right) \mathrm{d}t$$
-$$x(t) = \int _{-\infty} ^{\infty} X(\omega) \exp \left( j{2\pi f t}\right) \mathrm{d}\omega$$
+$$X(\omega) = \int _{-\infty} ^{\infty} x(t) \exp \left(- j{\omega t}\right) \mathrm{d}t$$
+$$x(t) = \frac{1}{2\pi} \int _{-\infty} ^{\infty} X(\omega) \exp \left( j{\omega t}\right) \mathrm{d}\omega$$
 
 #### Discrete Fourier Transform
 
 $$X_k = \sum _{n=0} ^{N-1} x_n \exp \left(- j\frac{2\pi n k}{N} \right)$$
-$$x_n = \sum _{k=0} ^{N-1} x_n \exp \left(+ j\frac{2\pi n k}{N} \right)$$
+$$x_n = \frac{1}{N} \sum _{k=0} ^{N-1} X_k \exp \left(+ j\frac{2\pi n k}{N} \right)$$
 
 ### 画像の挿入
 
@@ -49,6 +49,30 @@ $$X_k = \sum _{n=0} ^{N-1} x_n \exp \left(- j\frac{2\pi n k}{N} \right)$$
 
 ::::
 :::
+
+### コード挿入
+
+- コードも綺麗に挿入できます
+
+\metroset{block=fill}
+
+#### Python implementation of DFT
+
+\footnotesize
+
+```python
+import numpy as np
+
+
+def dft(x):
+    N = x.size
+    X = np.zeros(N, dtype=complex)
+    for k in range(N):
+        for n in range(N):
+            X[k] = x[n] * np.exp(-1j * 2 * np.pi * k * n / N)
+
+    return X
+```
 
 ### TeX コードの直接入力
 
